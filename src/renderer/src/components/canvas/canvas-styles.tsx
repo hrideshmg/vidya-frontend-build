@@ -47,11 +47,12 @@ export const canvasStyles = {
       borderRadius: '12px',
       minWidth: '60%',
       maxWidth: '95%',
+      maxHeight: '50%',
       zIndex: 2,
     },
     text: {
       color: 'white',
-      fontSize: '1.5rem',
+      fontSize: '1rem',
       textAlign: 'center',
       lineHeight: '1.4',
       whiteSpace: 'pre-wrap',

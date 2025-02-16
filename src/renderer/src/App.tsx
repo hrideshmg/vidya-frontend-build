@@ -79,48 +79,11 @@ function App(): JSX.Element {
                         <VADProvider>
                           <BgUrlProvider>
                             <WebSocketHandler>
-                              <Toaster />
-                              {mode === 'window' ? (
-                                <>
-                                  {isElectron && <TitleBar />}
-                                  <Flex {...layoutStyles.appContainer}>
-                                    <Box
-                                      {...layoutStyles.sidebar}
-                                      {...(!showSidebar && { width: '24px' })}
-                                    >
-                                      <Sidebar
-                                        isCollapsed={!showSidebar}
-                                        onToggle={() => setShowSidebar(!showSidebar)}
-                                      />
-                                    </Box>
-                                    <Box {...layoutStyles.mainContent}>
-                                      {/* <Box {...layoutStyles.canvas}> */}
-                                      <Canvas />
-                                      {/* <InputSubtitle isPet={false} /> */}
-                                      {/* </Box> */}
-                                      <Box
-                                        {...layoutStyles.footer}
-                                        {...(isFooterCollapsed
-                                          && layoutStyles.collapsedFooter)}
-                                      >
-                                        <Footer
-                                          isCollapsed={isFooterCollapsed}
-                                          onToggle={() => setIsFooterCollapsed(
-                                            !isFooterCollapsed,
-                                          )}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </Flex>
-                                </>
-                              ) : (
-                                <>
-                                  <Live2D isPet={mode === 'pet'} />
-                                  {mode === 'pet' && (
-                                    <InputSubtitle isPet={mode === 'pet'} />
-                                  )}
-                                </>
-                              )}
+                              <Flex {...layoutStyles.appContainer}>
+                                <Box {...layoutStyles.mainContent}>
+                                  <Canvas />
+                                </Box>
+                              </Flex>
                             </WebSocketHandler>
                           </BgUrlProvider>
                         </VADProvider>
