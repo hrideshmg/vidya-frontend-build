@@ -224,7 +224,7 @@ export function VADProvider({ children }: { children: React.ReactNode }) {
     if (aiStateRef.current === 'interrupted' || aiStateRef.current === 'listening') {
       setAiStateRef.current('idle');
     }
-    setSubtitleTextRef.current("The LLM can't hear you.");
+    setSubtitleTextRef.current("Vidya can't hear you.");
   }, []);
 
   /**
