@@ -18,13 +18,14 @@ export interface Message {
 }
 
 export interface Actions {
-  expressions?: string[] | number [];
+  expressions?: string[] | number[];
   pictures?: string[];
   sounds?: string[];
 }
 
 export interface MessageEvent {
   type: string;
+  url?: string;
   audio?: string;
   volumes?: number[];
   slice_length?: number;
@@ -78,7 +79,7 @@ class WebSocketService {
 
   connect(url: string) {
     if (this.ws?.readyState === WebSocket.CONNECTING ||
-        this.ws?.readyState === WebSocket.OPEN) {
+      this.ws?.readyState === WebSocket.OPEN) {
       this.disconnect();
     }
 

@@ -78,6 +78,15 @@ function WebSocketHandler({ children }: { children: React.ReactNode }) {
   const handleWebSocketMessage = useCallback((message: MessageEvent) => {
     console.log('Received message from server:', message);
     switch (message.type) {
+      case 'navigate':
+        if (message.url) {
+          try {
+            console.log("opening url:" + message.url)
+            window.parent.location.href = message.url
+          } catch (e) {
+            console.error('Invalid navigation URL:', e);
+          }
+        }
       case 'control':
         if (message.text) {
           handleControlMessage(message.text);
